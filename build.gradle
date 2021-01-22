@@ -21,6 +21,28 @@ allprojects {
     }
 }
 
+ext {
+
+    daggerVersion = '2.26'
+    rxJavaVersion = '2.2.18'
+    rxKotlinVersion = '2.4.0'
+    rxAndroidVersion = '2.1.1'
+    rxAnimationsVersion = '0.0.6'
+
+    //dagger
+    dagger = "com.google.dagger:dagger-android:$daggerVersion"
+    daggerSupport = "com.google.dagger:dagger-android-support:$daggerVersion"
+    // if you use the support libraries
+    daggerAnnotation = "com.google.dagger:dagger-android-processor:$daggerVersion"
+    //for annotationProcessor
+    daggerApt = "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    //rx
+    rxJava = "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    rxAndroid = "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    rxKotlin = "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+    rxAnimations = "com.mikhaellopez:rxanimation:$rxAnimationsVersion"
+}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

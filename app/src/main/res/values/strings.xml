@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Mobiquity Wether app</string>
+    <string name="app_name">Mobiquity Wether</string>
+    <string name="label_search">Search</string>
 </resources>

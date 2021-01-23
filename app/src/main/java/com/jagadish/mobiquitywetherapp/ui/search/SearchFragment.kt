@@ -2,6 +2,7 @@ package com.jagadish.mobiquitywetherapp.ui.search
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -29,9 +30,23 @@ class SearchFragment : BaseFragment<SearchViewModel, SearchFragmentBinding>(
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
-        val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+//        val sydney = LatLng(-34.0, 151.0)
+//        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+//        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+
+        googleMap.setOnMapClickListener {
+            googleMap.clear()
+            googleMap.addMarker(MarkerOptions().position(it))
+            binding.buttonDone.visibility = View.VISIBLE
+            binding.buttonDone.setOnClickListener { _ ->
+                it?.let {
+                    binding.viewModel?.saveCoordsToSharedPref(it)
+                        ?.subscribe { _, _ ->
+                            findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
+                        }
+                }
+            }
+        }
     }
 
     var disposable = CompositeDisposable()

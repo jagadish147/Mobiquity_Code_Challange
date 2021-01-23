@@ -63,6 +63,10 @@ class MainActivity : BaseActivity<MainActivityViewModel, MainActivityBinding>(Ma
                     binding.toolbar.setNavigationIcon(R.drawable.ic_back)
                     binding.toolbar.show()
                 }
+                R.id.dashboardFragment -> {
+                    binding.toolbar.setNavigationIcon(R.drawable.ic_back)
+                    binding.toolbar.show()
+                }
                 else -> {
                     binding.toolbar.hide()
                 }

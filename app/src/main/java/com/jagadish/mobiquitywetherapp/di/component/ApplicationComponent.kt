@@ -2,9 +2,7 @@ package com.jagadish.mobiquitywetherapp.di.component
 
 import android.app.Application
 import com.jagadish.mobiquitywetherapp.MobiquityApp
-import com.jagadish.mobiquitywetherapp.di.module.ActivityModule
-import com.jagadish.mobiquitywetherapp.di.module.ApplicationModule
-import com.jagadish.mobiquitywetherapp.di.module.ViewModelModule
+import com.jagadish.mobiquitywetherapp.di.module.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
@@ -15,6 +13,8 @@ import javax.inject.Singleton
     modules = [
         AndroidSupportInjectionModule::class,
         ApplicationModule::class,
+        NetModule::class,
+        DatabaseModule::class,
         ActivityModule::class,
         ViewModelModule::class
     ]
